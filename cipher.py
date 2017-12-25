@@ -16,18 +16,18 @@ while True:
 # FUNCTION
 def encryptor(sentence, key):
     list_sentence = list(sentence)
-    generated_sentence = []
+    generated_sentence = [] # so we can later append the letters
     for character in list_sentence:
-        if character.isupper() == True:
+        if character.isupper() == True: # different for capitals
             position = capital_alphabet.index(character)
             new_position = (position + key) % 26
-            generated_sentence.append(capital_alphabet[new_position])
+            generated_sentence.append(capital_alphabet[new_position]) # adds the letters one by one
         elif character.islower() == True:
             position = alphabet.index(character)
             new_position = (position + key) % 26
             generated_sentence.append(alphabet[new_position])
-        else:
-            pass
+        else: # if the value is a number, just append the number
+            generated_sentence.append(character)
 
     return ''.join(generated_sentence)
 
